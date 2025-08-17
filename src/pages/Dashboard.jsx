@@ -62,31 +62,35 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchDashboardData = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch('http://localhost:8000/api/dashboard/stats', {
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch dashboard data');
-        }
-        
-        const result = await response.json();
-        setData(result);
-      } catch (err) {
-        setError(err.message);
-        console.error('Error fetching dashboard data:', err);
-      } finally {
-        setLoading(false);
+  const fetchDashboardData = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('http://localhost:8000/api/dashboard/stats', {
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch dashboard data');
       }
-    };
+      
+      const result = await response.json();
+      setData(result);
+    } catch (err) {
+      setError(err.message);
+      console.error('Error fetching dashboard data:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  const refreshDashboard = () => {
+    fetchDashboardData();
+  };
+
+  useEffect(() => {
     fetchDashboardData();
   }, []);
 
@@ -231,11 +235,8 @@ export default function Dashboard() {
       {/* Upload Modal */}
       <Upload 
         isOpen={isUploadOpen} 
-        onClose={() => {
-          setIsUploadOpen(false);
-          // Refresh dashboard data when upload modal closes
-          refreshDashboard();
-        }} 
+        onClose={() => setIsUploadOpen(false)}
+        onUploadComplete={refreshDashboard}
       />
     </div>
   );

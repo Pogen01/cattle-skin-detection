@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Upload as UploadIcon, Image } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
-export default function Upload({ isOpen, onClose }) {
+export default function Upload({ isOpen, onClose, onUploadComplete }) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
@@ -61,6 +61,11 @@ export default function Upload({ isOpen, onClose }) {
         onClose();
         setSelectedImage(null);
         setPreviewUrl(null);
+
+        // Call the refresh callback if provided
+        if (onUploadComplete) {
+          onUploadComplete();
+        }
       } else {
         console.error('Upload failed');
       }

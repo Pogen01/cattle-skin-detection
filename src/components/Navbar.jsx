@@ -35,15 +35,6 @@ const Navbar = () => {
             <div className="flex items-center">
               <Link to="/" className="font-sans antialiased text-sm md:text-base text-current ml-2 mr-2 block py-1 font-semibold">Cattle Health</Link>
               <hr className="ml-1 mr-1.5 hidden h-5 w-px border-l border-t-0 border-secondary-dark lg:block" />
-              <div className="hidden lg:block">
-                <ul className="mt-4 flex flex-col gap-x-3 gap-y-1.5 lg:mt-0 lg:flex-row lg:items-center">
-                  { user?
-                  <li>
-                    <Link to="#" className="font-sans antialiased text-sm text-current flex items-center gap-x-2 p-1 hover:text-primary">History</Link>
-                  </li>
-                  : null}
-                </ul>
-              </div>
             </div>
             
             {/* Authentication section */}
@@ -115,17 +106,6 @@ const Navbar = () => {
                       className="font-sans antialiased text-sm text-current flex items-center gap-x-2 p-3 hover:text-primary hover:bg-stone-50 rounded-md transition-colors"
                     >
                       Dashboard
-                    </Link>
-                  </li>
-                )}
-                {user && (
-                  <li>
-                    <Link 
-                      to="#" 
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="font-sans antialiased text-sm text-current flex items-center gap-x-2 p-3 hover:text-primary hover:bg-stone-50 rounded-md transition-colors"
-                    >
-                      History
                     </Link>
                   </li>
                 )}
