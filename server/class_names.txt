@@ -1,2 +1,3 @@
-infected
-normal
+Foot and Mouth Disease
+Lumpy Skin Disease
+Normal Skin

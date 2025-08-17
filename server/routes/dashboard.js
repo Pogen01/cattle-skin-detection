@@ -23,7 +23,7 @@ router.get('/stats', requireAuth, async (req, res) => {
     images.forEach(image => {
       if (image.analysisResult && image.analysisResult.predicted_class) {
         const predictedClass = image.analysisResult.predicted_class.toLowerCase();
-        if (predictedClass !== 'healthy' && predictedClass !== 'normal') {
+        if (predictedClass !== 'healthy skin' && predictedClass !== 'normal skin') {
           // Count as infected
           infectedCount++;
           const disease = image.analysisResult.predicted_class;
