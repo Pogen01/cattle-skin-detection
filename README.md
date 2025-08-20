@@ -10,3 +10,11 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+1. Go to folder root directory.
+2. Change directory to server (One for backend one frontend)
+3. Create a virtual environment preferably on the root directory and install all python packages required to run the ML model.
+4. To start the frontend "npm run dev"
+5. To start the backend "npm start"
+6. To run the flask server "npm run flask"
