@@ -64,7 +64,7 @@ router.get('/stats', requireAuth, async (req, res) => {
       monthImages.forEach(image => {
         if (image.analysisResult && image.analysisResult.predicted_class) {
           const predictedClass = image.analysisResult.predicted_class.toLowerCase();
-          if (predictedClass !== 'healthy' && predictedClass !== 'normal') {
+          if (predictedClass !== 'healthy skin' && predictedClass !== 'normal skin') {
             monthInfectedCases++;
           }
         }

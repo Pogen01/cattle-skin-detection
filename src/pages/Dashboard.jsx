@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Pie } from 'react-chartjs-2';
-import { Line } from 'react-chartjs-2';
+import { Pie, Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -218,9 +217,6 @@ export default function Dashboard() {
         ) : (
           <p className="text-green-600">All animals appear healthy. Continue regular monitoring.</p>
         )}
-        <button className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
-          View Detailed Report
-        </button>
       </div>
 
       {/* Sticky Upload Button */}
